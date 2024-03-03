@@ -1,0 +1,105 @@
+#parcel----
+-->> DEV Build--
+-->> Local Server--
+-->> HMR -- Hot Module Replacement--
+-->> uses File watching Algorithm-- written in c++ -----
+-->> Gives faster builds because of caching----
+-->>> Does image optimzation--
+-->> Does minfication in production build--
+-->> Bundling--
+-->> Compressing files--
+-->> Consistent hashing--
+-->> Code splitting--
+==>>Differential Bundling-- fr older browsers--
+-->> Diagnostics--
+-->> Better Error Handling--
+-->>https support--
+-->> Tree shaking Algo-- removes unused code --
+-->>lazy mode loading==
+-->> differnt dev and production bundl
+
+#namastey Food-- 
+// header--
+//   logo 
+//   navItems
+
+// body ---
+//  search component
+
+//  restaurant container--
+//   restaurant--cards---
+ //     img,restName, star-Rating, cuisine.. etc..
+
+
+// footer--
+//     copyrights
+//     links
+//     address
+//     contact
+
+
+//TWO TYPE OF EXPORT AND IMPORT
+
+1. EXPORT  IMPORT DEFAULT---------
+
+-> EXPORT DEFAULT component
+-> IMPORT component FROM "PATH"
+
+2. Named EXPORT/IMPORT
+-> EXPORT const component
+-> IMPORT {component} from "path"
+
+
+-- React Hooks --
+> Normal js utility f(n)
+
+
+useState()--
+
+useEffect()--
+
+//two types of routing---
+client side---
+server side routing-----
+
+
+
+
+#redux ToolKit----
+- Install @reduxjs/ToolKit and react-redux--
+- Build Our Store--
+- connect our store to our app--
+- Slice (Cart Slice)
+- Dispatch Action 
+- Selector--
+
+#Types of testing-- (developer) >
+- Unit testing -----------
+->  Will use to Test react components in Isolation----
+-> 
+- Integration Testing --------------
+-> The testing in which multiple components are involved and are talking to each other.
+-> Will be used in testing the integration of the components--
+-> In large apps there are so many components and these components talk/interconnection to each other--
+
+- End To End Testing - e-2-e testing---
+-> means testing a react Application as soon as the user lands on the website till the user leaves the website--
+-> 
+
+
+#setting up Testing in our app-----
+-Install React Testing Library 
+-Install jest 
+-Installed Babel dependencies---
+-Configured Babel--
+-configure parcel config file to disable default babel transpilation
+-jest configuration-- npx jest --init 
+-install js-dom Library
+-install @babel/preset-react - to make jsx work in test cases-------------
+-include @babel/preset inside my babel--
+-install @testing-library/jest-dom
+
+
+
+
+
