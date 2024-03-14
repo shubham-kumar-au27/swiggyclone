@@ -1,7 +1,9 @@
 import { useState } from "react"
 import ItemList from "./ItemList"
 
-const RestaurantCategory = ({data,showItems,setShowIndex,dummy})=>{
+const RestaurantCategory = ({data,showItems,setShowIndex,dummy,resId})=>{
+
+    // console.log('resId =>',resId)
 
     
     const handleclick = ()=>{
@@ -18,7 +20,7 @@ const RestaurantCategory = ({data,showItems,setShowIndex,dummy})=>{
                 </div>
               
                    {/* {Accordian Body} */}
-             { showItems && <ItemList items = {data.itemCards} dummy={dummy}/>}
+             { showItems && <ItemList items = {data.itemCards} dummy={dummy} resId={resId}/>}
             </div>
      
 

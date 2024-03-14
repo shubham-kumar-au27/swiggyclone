@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
     name:"cart",
     initialState:{
-        items:[]
+        items:[],
+        resId:null,
+        TotalPrice:0
     },
     reducers:{
         addItem:(state,action)=>{
@@ -11,9 +13,9 @@ const cartSlice = createSlice({
             //const newState = [...state];
             //newState.items.push(action.payload);
             // return newState--
+            const {Item} = action.payload
 
-            state.items.push(action.payload);
-
+            state.items.push(Item);  
         },
          removeItem:(state)=>{
             state.items.pop()
@@ -24,14 +26,24 @@ const cartSlice = createSlice({
             //RTK - Either mutate the existing state or return a new state----
             // state.items.length  = 0; //state = [];
                 // or
-            return {items:[]}    //this new object will be replaced inside orignal state = [] 
+            return {items:[],TotalPrice:0}    //this new object will be replaced inside orignal state = [] 
+         },
+         addResId:(state,action)=>{
+            
+            state.resId = action.payload
+         },
+         addToTotalPrice:(state,action)=>{
+            state.TotalPrice += action.payload
 
 
-         }
+         },
+        //  MinusToTotalPrice:(state,action)=>{
+
+        //  }
     }
 })
 
-export const {addItem,removeItem,clearCart} = cartSlice.actions;
+export const {addItem,removeItem,clearCart,addResId,addToTotalPrice} = cartSlice.actions;
 
 export default cartSlice.reducer;
 

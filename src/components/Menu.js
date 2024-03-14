@@ -10,6 +10,9 @@ const RestaurantMenu = () => {
 
   // const dummy = "Dummy Data";
 
+  console.log('my resId =>',resId)
+
+
   const resInfo = useRestaurantMenu(resId);
 
 
@@ -27,7 +30,7 @@ const RestaurantMenu = () => {
         c.card?.["card"]?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log('category',categories);
+  // console.log('category',categories);
 
   return (
     <div className="text-center">
@@ -39,9 +42,10 @@ const RestaurantMenu = () => {
       {categories.map((category, index) => (
         // controlled component
         <RestaurantCategory
-          key={category?.card?.card.title}
+          key={category?.card?.card?.title}
           data={category?.card?.card}
           showItems = {index===showIndex?true:false}
+          resId={resId}
           setShowIndex = {()=>setShowIndex(index)}
           // dummy = {dummy}
         />

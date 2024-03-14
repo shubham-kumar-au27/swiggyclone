@@ -1,15 +1,36 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { CDN_URL } from "../utils/constants"
-import { addItem } from "../utils/cartSlice";
-const ItemList = ({items,dummy})=>{
-    console.log(dummy)
+import { addItem, addResId, addToTotalPrice } from "../utils/cartSlice";
+
+const ItemList = ({items,dummy,resId})=>{
     
     const dispatch = useDispatch();
+    console.log(resId)
+    const restaurantId = resId
+    const currRes = useSelector((store)=> store?.cart?.resId)
+    const handleAddItem = (item,restaurantId,currRes)=>{
 
-    const handleAddItem = (item)=>{
         //dispatch an action----
-        dispatch(addItem(item));
+        console.log(restaurantId)
 
+        // console.log('ItemPrice =>',item?.card?.info?.price/100)
+     
+
+        if (currRes && currRes !== restaurantId){
+            console.log('Order from Other Restaurant Already Exists !')
+        }else if( currRes && currRes === restaurantId){
+            dispatch(addToTotalPrice(item?.card?.info?.price/100))
+            dispatch(addItem({Item:item}));
+            console.log('Orders Added from same restaurant')
+        }
+        else{
+            dispatch(addToTotalPrice(item?.card?.info?.price/100))
+            dispatch(addItem({Item:item}));
+            dispatch(addResId(restaurantId));
+
+        }
+       
+     
     }
 
 
@@ -24,7 +45,7 @@ const ItemList = ({items,dummy})=>{
             </div>
             <div className="w-3/12 p-4">
             <div className="absolute">
-                <button className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg" onClick={()=> handleAddItem(item)}>Add+</button>
+                <button className="p-2 mx-16 rounded-lg bg-black text-white shadow-lg" onClick={()=> handleAddItem(item,restaurantId,currRes)}>Add+</button>
             </div>
                 <img src={CDN_URL + item?.card?.info?.imageId} />
             </div>
